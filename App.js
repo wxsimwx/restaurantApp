@@ -18,10 +18,7 @@ const HomeStack = createDrawerNavigator({
       screen: RestaurantScreen
     },
     Location: {
-      screen: LocationScreen,
-      navigationOptions: () => ({
-        headerTitle: 'goback',
-      })
+      screen: LocationScreen
     }
 });
 
