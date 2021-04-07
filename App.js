@@ -1,21 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
+// App.js
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from 'react-navigation-stack'
+import { createDrawerNavigator } from 'react-navigation-drawer'
+import RestaurantScreen from './components/RestaurantScreen';
+import LocationScreen from './components/LocationScreen';
+import DetailsScreen from './components/DetailsScreen';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const HomeStack = createDrawerNavigator({
+    Restaurant: {
+      screen: RestaurantScreen
+    },
+    Location: {
+      screen: LocationScreen,
+      navigationOptions: () => ({
+        headerTitle: 'goback',
+      })
+    }
 });
+
+const AppStack = createStackNavigator({
+  Details: {
+    screen: DetailsScreen,
+  },
+  Home: {
+    screen: HomeStack,
+    navigationOptions: () => ({
+      title: 'Restaurants',
+    })
+  },
+}, {
+      initialRouteName: "Home"
+});
+
+
+
+const AppContainer = createAppContainer(AppStack);
