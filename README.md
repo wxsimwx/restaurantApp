@@ -2,6 +2,12 @@
 
 An restaurant app create by React Native
 
+### Screenshots
+![Restaurant list](https://i.imgur.com/507YhqT.png)
+![Details page](https://i.imgur.com/xIbzkvh.png)
+![Selected restaurant map](https://i.imgur.com/MQBJmNs.png)
+![All restaurant map](https://i.imgur.com/Cbv9pwq.png)
+
 ## Getting started
 
 First you'll have to clone the App:
